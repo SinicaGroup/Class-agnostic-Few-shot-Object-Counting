@@ -106,5 +106,5 @@ bash run.sh
 * Thanks to the helpful discussion from 
 the author of [Class-Agnostic Few-Shot Object Counting](https://openaccess.thecvf.com/content/WACV2021/html/Yang_Class-Agnostic_Few-Shot_Object_Counting_WACV_2021_paper.html), Shuo-Diao Yang, </br>
 the author of [Bilinear Matching Network](https://arxiv.org/abs/2203.08354), Min Shi, </br>
-and the author of (Learning to Count Anything: Reference-less Class-agnostic Counting with Weak Supervision)[https://arxiv.org/abs/2205.10203], Michael Hobley. </br>
+and the author of [Learning to Count Anything: Reference-less Class-agnostic Counting with Weak Supervision](https://arxiv.org/abs/2205.10203), Michael Hobley. </br>
 
