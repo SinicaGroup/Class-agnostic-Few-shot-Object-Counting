@@ -90,12 +90,12 @@ cd CODE_DIRECTORY
 bash run.sh
 ````
 * After running the code, you will find your training logs under CODE_DIRECTORY/exp/logs.
-* 
+
 ## Testing
 * Please go to [config.yaml](configs/config.yaml) to change the configs under "eval". </br>
 * The configs checkpoint, sample, and image_folder are the variables which are usually modified. </br>
 * Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --test```
-* doc_name can be any string you want
+* doc_name can be any string you want.
 ````
 cd CODE_DIRECTORY
 bash run.sh
@@ -103,6 +103,6 @@ bash run.sh
 * After running the code, you will find your testing logs under CODE_DIRECTORY/exp/logs.
 
 ## Acknowledgement
-Thanks to the helpful discussion  (bmnet, cfocnet, oxford) </br>
-The implementation  ... </br>
+Thanks to the helpful discussion from the author of [Class-Agnostic Few-Shot Object Counting](https://openaccess.thecvf.com/content/WACV2021/html/Yang_Class-Agnostic_Few-Shot_Object_Counting_WACV_2021_paper.html), Shuo-Diao Yang, the author of [Bilinear Matching Network](https://arxiv.org/abs/2203.08354), Min Shi, and the author of (Learning to Count Anything: Reference-less Class-agnostic Counting with Weak Supervision)[https://arxiv.org/abs/2205.10203], Michael Hobley. </br>
+The implementation  </br>
 
