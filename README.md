@@ -9,6 +9,7 @@ Shuo-Diao Yang, Hung-Ting Su, Winston H. Hsu, Wen-Chin Chen<sup>*</sup>
 Our code has been tested on Python 3.7.13 and PyTorch 1.8.1+cu101. Please follow the instructions to setup your environment. See other required packages in `requirements.txt`.
 ````
 conda create --name CFOCNet python=3.7.13
+conda activate CFOCNet
 pip install Cython
 pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
 pip install -r requirements
