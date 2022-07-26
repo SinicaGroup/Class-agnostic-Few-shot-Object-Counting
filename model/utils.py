@@ -1,6 +1,8 @@
 import torch.nn as nn
 from torchvision.models.resnet import resnet50
-
+```
+Code source: https://stackoverflow.com/questions/46562612/pytorch-maxpooling-over-channels-dimension
+```
 class JDimPool(nn.MaxPool1d):
     def forward(self, input):
         b,n, c, w, h = input.size()
