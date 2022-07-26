@@ -13,7 +13,7 @@ conda activate CFOCNet
 pip install -r requirements.txt
 pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
 ````
-
+If you have problem about installing **cocoapi**, come [here](https://github.com/philferriere/cocoapi) to find official solution.
 ## Getting Started
 * [CFOCNet_demo.ipynb](CFOCNet_demo.ipynb) Is the detail implementation of CFOCNet, you can see how the size of the tensros change.
 * [model](model) This directory contains the main CFOCNEt implementation.
