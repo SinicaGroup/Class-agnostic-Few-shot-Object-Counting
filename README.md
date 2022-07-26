@@ -12,7 +12,7 @@ conda create --name CFOCNet python=3.7.13
 conda activate CFOCNet
 pip install Cython
 pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
-pip install -r requirements
+pip install -r requirements.txt
 ````
 
 ## Getting Started
