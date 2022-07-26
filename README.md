@@ -19,7 +19,7 @@ If you have problem about installing **cocoapi**, come [here](https://github.com
 ## Getting Started
 * [CFOCNet_demo.ipynb](CFOCNet_demo.ipynb) Is the detail implementation of CFOCNet, you can see how the size of the tensros change.
 * [model](model) This directory contains the main CFOCNEt implementation.
-
+* [Eval_Result](Eval_Result) This directory contains some testing good evaluation picture results.
 ## Data Preparation
 We train and evaluate our methods on COCO dataset 2017. </br>
 Please follow the instruction [here](https://gist.github.com/mkocabas/a6177fc00315403d31572e17700d7fd9) to download the COCO dataset 2017 </br>
