@@ -109,7 +109,7 @@ bash run.sh
 * After running the code, you will find your testing logs under "CODE_DIRECTORY/exp/logs/doc_name".
 
 ## Implementation Details
-* We simulate the structure from [here](https://github.com/ermongroup/ncsnv2).
+* We simulate the project structure from [here](https://github.com/ermongroup/ncsnv2).
 * We crop 500 reference images for each categories.
 * For query image, instead of random crop, we resize it with aspect ratio and padding to 256 x 256.
 
