@@ -82,20 +82,26 @@ $PATH_TO_DATASET/
 
 ## Training
 * Please go to [config.yaml](configs/config.yaml) to change the configs under "train". </br>
-* The configs epochs, batch_size, and result_path are the variables which are usually modified. </br>
-* Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --train```
+* The configs epochs, batch_size, and result_path are the variables which are usually modified .</br>
+* Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --train```.
+* doc_name can be any string you want.
 ````
 cd CODE_DIRECTORY
 bash run.sh
 ````
+* After running the code, you will find your training logs under CODE_DIRECTORY/exp/logs.
+* 
 ## Testing
 * Please go to [config.yaml](configs/config.yaml) to change the configs under "eval". </br>
 * The configs checkpoint, sample, and image_folder are the variables which are usually modified. </br>
 * Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --test```
+* doc_name can be any string you want
 ````
 cd CODE_DIRECTORY
 bash run.sh
 ````
+* After running the code, you will find your testing logs under CODE_DIRECTORY/exp/logs.
+
 ## Acknowledgement
 Thanks to the helpful discussion  (bmnet, cfocnet, oxford) </br>
 The implementation  ... </br>
