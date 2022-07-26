@@ -6,6 +6,40 @@ In Proc. IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2
 Shuo-Diao Yang, Hung-Ting Su, Winston H. Hsu, Wen-Chin Chen<sup>*</sup>
 
 ## Installation
-Our code has been tested on Python 3.7.13 and PyTorch 1.8.1+cu111. Please follow the official instructions to setup your environment. See other required packages in `requirements.txt`.
+Our code has been tested on Python 3.7.13 and PyTorch 1.8.1+cu101. Please follow the official instructions to setup your environment. See other required packages in `requirements.txt`.
 
+## Data Preparation
+We train and evaluate our methods on COCO dataset 2017. </br>
+Please follow the instruction [here](https://gist.github.com/mkocabas/a6177fc00315403d31572e17700d7fd9) to download the COCO dataset 2017 </br>
+structure used in our code will be like : </br>
+````
+$PATH_TO_DATASET/
+├──── images
+│    ├──── train2017
+│             |──── 118287 images (.jpg)
+│
+│    ├──── test2017
+│             |──── 40670 images (.jpg)
+│
+│    ├──── val2017
+│             |──── 5000 images (.jpg)
+│
+├──── annotations
+│    ├──── captions_train2017.json
+│
+│    ├──── captions_val2017.json
+│
+│    ├──── instances_val2017.json
+│
+│    ├──── person_keypoints_train2017.json
+│
+│    ├──── person_keypoints_val2017.json
+````
+```
+cd 
+python crop.py
+```
+## Acknowledgement
+Thanks to the helpful discussion  (bmnet, cfocnet, oxford) </br>
+The implementation  ... </br>
 
