@@ -8,6 +8,10 @@ Shuo-Diao Yang, Hung-Ting Su, Winston H. Hsu, Wen-Chin Chen<sup>*</sup>
 ## Installation
 Our code has been tested on Python 3.7.13 and PyTorch 1.8.1+cu101. Please follow the official instructions to setup your environment. See other required packages in `requirements.txt`.
 
+## Getting Started
+* [CFOCNet_demo.ipynb](CFOCNet_demo.ipynb) Is the detail implementation of CFOCNet, you can see how the size of the tensros change.
+* [model](model) This directory contains the main CFOCNEt implementation.
+
 ## Data Preparation
 We train and evaluate our methods on COCO dataset 2017. </br>
 Please follow the instruction [here](https://gist.github.com/mkocabas/a6177fc00315403d31572e17700d7fd9) to download the COCO dataset 2017 </br>
@@ -74,6 +78,23 @@ $PATH_TO_DATASET/
 │
 │    ├──── person_keypoints_val2017.json
 
+```
+
+## Training
+* Please go to [config.yaml](configs/config.yaml) to change the configs under "train". </br>
+* The configs epochs, batch_size, and result_path are the variables which are usually modified. </br>
+* Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --train```
+```
+cd CODE_DIRECTORY
+bash run.sh
+```
+## Testing
+* Please go to [config.yaml](configs/config.yaml) to change the configs under "eval". </br>
+* The configs checkpoint, sample, and image_folder are the variables which are usually modified. </br>
+* Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --test```
+```
+cd CODE_DIRECTORY
+bash run.sh
 ```
 ## Acknowledgement
 Thanks to the helpful discussion  (bmnet, cfocnet, oxford) </br>
