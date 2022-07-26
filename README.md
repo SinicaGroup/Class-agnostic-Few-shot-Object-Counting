@@ -45,7 +45,7 @@ After download the data, please go to our code repository. </br>
 Modify the variable "coco_path" in line 8  in [crop.py](data/crop.py) to your COCO dataset path.
 ````
 cd CODE_DIRECTORY
-python crop.py
+python data/crop.py
 ````
 After above instructions, structure used in our code will be like : </br>
 ````
