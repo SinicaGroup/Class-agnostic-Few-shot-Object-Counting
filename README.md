@@ -5,7 +5,6 @@ This repository is the non-official pytorch implementation of a WACV 2021 Paper 
 In Proc. IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2021
 Shuo-Diao Yang, Hung-Ting Su, Winston H. Hsu, Wen-Chin Chen<sup>*</sup>
 
-
 ![39_ref_good](https://user-images.githubusercontent.com/76461262/181033357-71dc9a34-7a78-4410-81d6-4dc7d74bedfd.png) </br>
 <img src="https://user-images.githubusercontent.com/76461262/181033299-cda225d3-c964-4327-9d13-bdbdaa296af3.png" width="200" height="150" /> <img src="https://user-images.githubusercontent.com/76461262/181033407-cb571edc-cb2f-4f1a-9127-fb74cafc933c.png" width="300" height="225" /> <img src="https://user-images.githubusercontent.com/76461262/181033455-84efbbea-0656-4e47-b281-34e3eeb14482.png" width="300" height="225" /> </br>
 
