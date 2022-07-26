@@ -16,7 +16,7 @@ Our code has been tested on Python 3.7.13 and PyTorch 1.8.1+cu101. Please follow
 We train and evaluate our methods on COCO dataset 2017. </br>
 Please follow the instruction [here](https://gist.github.com/mkocabas/a6177fc00315403d31572e17700d7fd9) to download the COCO dataset 2017 </br>
 structure used in our code will be like : </br>
-```
+````
 $PATH_TO_DATASET/
 ├──── images
 │    ├──── train2017
@@ -40,15 +40,15 @@ $PATH_TO_DATASET/
 │    ├──── person_keypoints_train2017.json
 │
 │    ├──── person_keypoints_val2017.json
-```
+````
 After download the data, please go to our code repository. </br>
 Modify the variable in line 8  "coco_path" to your COCO dataset path.
-```
+````
 cd CODE_DIRECTORY
 python crop.py
-```
+````
 After above instructions, structure used in our code will be like : </br>
-```
+````
 $PATH_TO_DATASET/
 ├──── images
 │    ├──── train2017
@@ -78,24 +78,24 @@ $PATH_TO_DATASET/
 │
 │    ├──── person_keypoints_val2017.json
 
-```
+````
 
 ## Training
 * Please go to [config.yaml](configs/config.yaml) to change the configs under "train". </br>
 * The configs epochs, batch_size, and result_path are the variables which are usually modified. </br>
 * Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --train```
-```
+````
 cd CODE_DIRECTORY
 bash run.sh
-```
+````
 ## Testing
 * Please go to [config.yaml](configs/config.yaml) to change the configs under "eval". </br>
 * The configs checkpoint, sample, and image_folder are the variables which are usually modified. </br>
 * Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --test```
-```
+````
 cd CODE_DIRECTORY
 bash run.sh
-```
+````
 ## Acknowledgement
 Thanks to the helpful discussion  (bmnet, cfocnet, oxford) </br>
 The implementation  ... </br>
