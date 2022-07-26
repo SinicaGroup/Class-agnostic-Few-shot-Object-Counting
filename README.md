@@ -42,7 +42,7 @@ $PATH_TO_DATASET/
 │    ├──── person_keypoints_val2017.json
 ````
 After download the data, please go to our code repository. </br>
-Modify the variable in line 8  "coco_path" to your COCO dataset path.
+Modify the variable "coco_path" in line 8  in [crop.py](data/crop.py) to your COCO dataset path.
 ````
 cd CODE_DIRECTORY
 python crop.py
