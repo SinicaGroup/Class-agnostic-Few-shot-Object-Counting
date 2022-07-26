@@ -1,0 +1,22 @@
+train:
+  epochs: 5
+  batch_size: 12
+  # snapshot_freq: 1000
+  # snapshot_sampling: true
+  num_workers: 2
+  ssim_loss: 1.0e-5
+  references: 5
+  result_path: /home/Hacker_Davinci/Desktop/Open_Source/CFOCNet/Result
+
+data:
+  data_path: /home/Hacker_Davinci/Desktop/coco
+  num_references: 5
+
+optimizer:
+  lr: 1.0e-4
+
+eval:
+  checkpoint: /home/Hacker_Davinci/Desktop/Open_Source/CFOCNet/ckpt/model.ckpt
+  sample: true
+  image_folder: /home/Hacker_Davinci/Desktop/Open_Source/CFOCNet/image_folder
+  
