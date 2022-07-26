@@ -95,7 +95,7 @@ $PATH_TO_DATASET/
 cd CODE_DIRECTORY
 bash run.sh
 ````
-* After running the code, you will find your training logs under CODE_DIRECTORY/exp/logs.
+* After running the code, you will find your training logs under CODE_DIRECTORY/exp/logs/doc_name
 
 ## Testing
 * Please go to [config.yaml](configs/config.yaml) to change the configs under "eval". </br>
@@ -106,7 +106,7 @@ bash run.sh
 cd CODE_DIRECTORY
 bash run.sh
 ````
-* After running the code, you will find your testing logs under CODE_DIRECTORY/exp/logs.
+* After running the code, you will find your testing logs under CODE_DIRECTORY/exp/logs/doc_name
 
 ## Acknowledgement
 * Thanks to the helpful discussion from </br>
