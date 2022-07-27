@@ -1,6 +1,6 @@
 # Class agnostic Few shot Object Counting
 
-This repository is the non-official pytorch implementation of a WACV 2021 Paper "Class-agnostic-Few-shot-Object-Counting". [Link](https://openaccess.thecvf.com/content/WACV2021/papers/Yang_Class-Agnostic_Few-Shot_Object_Counting_WACV_2021_paper.pdf)
+This repository is the non-official pytorch implementation of a WACV 2021 Paper "Class-agnostic Few-shot-Object-Counting". [Link](https://openaccess.thecvf.com/content/WACV2021/papers/Yang_Class-Agnostic_Few-Shot_Object_Counting_WACV_2021_paper.pdf)
 
 In Proc. IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2021
 Shuo-Diao Yang, Hung-Ting Su, Winston H. Hsu, Wen-Chin Chen<sup>*</sup>
@@ -12,18 +12,18 @@ Shuo-Diao Yang, Hung-Ting Su, Winston H. Hsu, Wen-Chin Chen<sup>*</sup>
 <img src="https://user-images.githubusercontent.com/76461262/181036450-ee30acc9-1521-4dd1-b5c3-562308dc7f8d.png" width="200" height="150" /> <img src="https://user-images.githubusercontent.com/76461262/181036669-6d0b78b4-8447-4f8c-9ac6-821351bc4f0b.png" width="300" height="225" /> <img src="https://user-images.githubusercontent.com/76461262/181036720-a7539696-bd5f-4886-aff6-4a343d390276.png" width="300" height="225" /> </br>
 
 ## Installation
-Our code has been tested on Python 3.8 and PyTorch 1.8.1+cu101. Please follow the instructions to setup your environment. See other required packages in `requirements.txt`.
+Our code has been implemented on Python 3.8 and PyTorch 1.8.1+cu101. Please follow the instructions to setup your environment. See other required packages in `requirements.txt`.
 ````
 conda create --name CFOCNet python=3.8
 conda activate CFOCNet
 pip install -r requirements.txt
 pip install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
 ````
-If you have problem about installing **cocoapi**, come [here](https://github.com/philferriere/cocoapi) to find official solution.
+If you have problem about installing **cocoapi**, come [here](https://github.com/philferriere/cocoapi) to find the official documentation.
 ## Getting Started
-* [CFOCNet_demo.ipynb](CFOCNet_demo.ipynb) Is the detail implementation of CFOCNet, you can see how the size of the tensros change.
-* [model](model) This directory contains the main CFOCNEt implementation.
-* [Eval_Result](Eval_Result) This directory contains some testing good evaluation picture results.
+* [CFOCNet_demo.ipynb](CFOCNet_demo.ipynb) This notebook tests the detail implementations of CFOCNet, giving insights such as how the size of each tensor changes across each stage.
+* [model](model) This directory contains all related modules of our CFOCNet implementation
+* [Eval_Result](Eval_Result) This directory contains the ideal results during evaluation stage, where the predicted count and the density map aligns with the groundtruth count.
 ## Data Preparation
 We train and evaluate our methods on COCO dataset 2017. </br>
 Please follow the instruction [here](https://gist.github.com/mkocabas/a6177fc00315403d31572e17700d7fd9) to download the COCO dataset 2017 </br>
@@ -53,13 +53,13 @@ $PATH_TO_DATASET/
 │
 │    ├──── person_keypoints_val2017.json
 ````
-After download the data, please go to our code repository. </br>
-Modify the variable "coco_path" in line 8  in [crop.py](data/crop.py) to your COCO dataset path.
+After downloading the data, please navigate to our repository. </br>
+Then, modify the variable "coco_path" in line 8  in [crop.py](data/crop.py) to your COCO dataset path.
 ````
 cd CODE_DIRECTORY
 python data/crop.py
 ````
-After above instructions, structure used in our code will be like : </br>
+After performing the above instructions, the structure of your coco dataset will be like : </br>
 ````
 $PATH_TO_DATASET/
 ├──── images
@@ -94,9 +94,10 @@ $PATH_TO_DATASET/
 
 ## Training
 * Please go to [config.yaml](configs/config.yaml) to change the configs under "train". </br>
-* The configs **epochs**, **batch_size**, and **result_path** are the **variables** which are usually modified .</br>
-* Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --train```.
+* To setup the training process, model configurations such as **epochs**, **batch_size**, and **result_path** can be tuned, all of which are stored in config.yaml</br>
+* Modify run.sh to setup the training process ```python main.py --config=config.yaml --doc=doc_name --train```.
 * doc_name can be any string you want.
+* Execute the bash script through the below command:
 ````
 cd CODE_DIRECTORY
 bash run.sh
@@ -105,9 +106,10 @@ bash run.sh
 
 ## Testing
 * Please go to [config.yaml](configs/config.yaml) to change the configs under "eval". </br>
-* The configs **checkpoint**, **sample**, and **image_folder** are the variables which are usually modified. </br>
-* Modify file run.sh to command line ```python main.py --config=config.yaml --doc=doc_name --test```
+* To setup the testing process, the configurations such as **checkpoint**, **sample**, and **image_folder** can be tuned, all of which are stored in config.yaml. </br>
+* Modify run.sh to setup the testing process ```python main.py --config=config.yaml --doc=doc_name --test```
 * doc_name can be any string you want.
+* Execute the bash script through the below command
 ````
 cd CODE_DIRECTORY
 bash run.sh
@@ -118,9 +120,10 @@ bash run.sh
 * We simulate the project structure from [here](https://github.com/ermongroup/ncsnv2).
 * We crop 500 reference images for each categories.
 * For query image, instead of random crop, we resize it with aspect ratio and padding to 256 x 256.
+* The default setting in our code is 5-shot learning, where each query image has 5 reference images to learn. 
 
 ## Acknowledgement
-* Thanks to the helpful discussion about reproduction details from </br>
+* Great thanks to the contributive discussions on the reproduction details with </br>
 the author of [Class-Agnostic Few-Shot Object Counting](https://openaccess.thecvf.com/content/WACV2021/html/Yang_Class-Agnostic_Few-Shot_Object_Counting_WACV_2021_paper.html), Shuo-Diao Yang, </br>
 the author of [Bilinear Matching Network](https://arxiv.org/abs/2203.08354), Min Shi, </br>
-and the author of [Learning to Count Anything: Reference-less Class-agnostic Counting with Weak Supervision](https://arxiv.org/abs/2205.10203), Michael Hobley. </br>
+and the author of [Learning to Count Anything: Reference-less Class-agnostic Counting with Weak Supervision](https://arxiv.org/abs/2205.10203), Michael Hobley. </br> Their feedbacks have been really helpful, allowing us to replicate the model successfully. 
