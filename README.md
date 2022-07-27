@@ -23,7 +23,7 @@ If you have problem about installing **cocoapi**, come [here](https://github.com
 ## Getting Started
 * [CFOCNet_demo.ipynb](CFOCNet_demo.ipynb) This notebook tests the detail implementations of CFOCNet, giving insights such as how the size of each tensor changes across each stage.
 * [model](model) This directory contains all related modules of our CFOCNet implementation
-* [Eval_Result](Eval_Result) This directory contains the ideal results during evaluation stage, where the predicted count and the density map aligns with the groundtruth count.
+* [Eval_Result](Eval_Result) This directory contains the ideal results during evaluation stage, where an example's predicted count and the density map aligns with the groundtruth.
 ## Data Preparation
 We train and evaluate our methods on COCO dataset 2017. </br>
 Please follow the instruction [here](https://gist.github.com/mkocabas/a6177fc00315403d31572e17700d7fd9) to download the COCO dataset 2017 </br>
