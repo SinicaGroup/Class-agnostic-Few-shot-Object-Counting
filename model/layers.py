@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
-```
+'''
 Code source: https://github.com/heykeetae/Self-Attention-GAN/blob/master/sagan_models.py
-```
+'''
 class Self_Attn(nn.Module):
     """ Self attention Layer"""
 
