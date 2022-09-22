@@ -36,6 +36,7 @@ class Runner:
 
         for epoch in range(self.config.train.epochs):
             for i, sample in enumerate(data_loader):
+                optimizer.zero_grad()
                 
                 queries = sample[0].to(self.config.device)
                 references = sample[1].to(self.config.device)
@@ -44,36 +45,35 @@ class Runner:
                 net.train()
                 FS = net(queries,references)
                 loss, ssim_loss = my_loss(FS,target,self.config)
+                
                 loss.backward()
-
-                optimizer.zero_grad()
                 optimizer.step()
                 
                 print(f"Loss: {loss / self.config.train.batch_size}, SSIM Loss: {ssim_loss / self.config.train.batch_size}")
 
-                if i % 1000 == 0:
-                    net.eval()
-                    with torch.no_grad():
-                        predict = net(queries,references)
+#                 if i % 1000 == 0:
+#                     net.eval()
+#                     with torch.no_grad():
+#                         predict = net(queries,references)
 
-                        # Save query image
-                        save_image(queries[0], os.path.join(self.config.train.result_path, f"Epoch_{epoch}_number_{i*self.config.train.batch_size}_query.png")) 
+#                         # Save query image
+#                         save_image(queries[0], os.path.join(self.config.train.result_path, f"Epoch_{epoch}_number_{i*self.config.train.batch_size}_query.png")) 
 
-                        # Save reference images
-                        save_image(references[0], os.path.join(self.config.train.result_path, f"Epoch_{epoch}_number_{i*self.config.train.batch_size}_reference.png")) 
+#                         # Save reference images
+#                         save_image(references[0], os.path.join(self.config.train.result_path, f"Epoch_{epoch}_number_{i*self.config.train.batch_size}_reference.png")) 
 
-                        # Save target images
-                        plt.imshow(target[0,0].cpu().numpy())
-                        plt.title(f'target sum : {np.sum(target[0,0].cpu().numpy())}')
-                        plt.savefig(os.path.join(self.config.train.result_path, f"Epoch_{epoch}_number_{i*self.config.train.batch_size}_target.png"))
+#                         # Save target images
+#                         plt.imshow(target[0,0].cpu().numpy())
+#                         plt.title(f'target sum : {np.sum(target[0,0].cpu().numpy())}')
+#                         plt.savefig(os.path.join(self.config.train.result_path, f"Epoch_{epoch}_number_{i*self.config.train.batch_size}_target.png"))
 
-                        # Save predict images
-                        plt.imshow(predict[0,0].cpu().numpy())
-                        plt.title(f'predict sum : {np.sum(predict[0,0].cpu().numpy())}')
-                        plt.savefig(os.path.join(self.config.train.result_path, f"Epoch_{epoch}_number_{i*self.config.train.batch_size}_predict.png"))
+#                         # Save predict images
+#                         plt.imshow(predict[0,0].cpu().numpy())
+#                         plt.title(f'predict sum : {np.sum(predict[0,0].cpu().numpy())}')
+#                         plt.savefig(os.path.join(self.config.train.result_path, f"Epoch_{epoch}_number_{i*self.config.train.batch_size}_predict.png"))
 
-                        logging.info(f'Epoch {epoch} Number {i*self.config.train.batch_size} picture loss:{loss.item()/self.config.train.batch_size}')
-                        logging.info(f'target sum: {np.sum(target[0,0].cpu().numpy())}, predict sum: {np.sum(predict[0,0].cpu().numpy())}')
+#                         logging.info(f'Epoch {epoch} Number {i*self.config.train.batch_size} picture loss:{loss.item()/self.config.train.batch_size}')
+#                         logging.info(f'target sum: {np.sum(target[0,0].cpu().numpy())}, predict sum: {np.sum(predict[0,0].cpu().numpy())}')
 
 
             torch.save(net.state_dict(),os.path.join(self.args.log_path,f'model_epoch_{epoch}.pth'))
@@ -114,38 +114,38 @@ class Runner:
                 mae_sum += abs(target_num-predict_num)
                 mse_sum += abs(target_num-predict_num) **2
 
-                if self.config.eval.sample:
+#                 if self.config.eval.sample:
 
-                    os.makedirs(os.path.join(self.config.eval.image_folder,'bad'),exist_ok=True)
-                    os.makedirs(os.path.join(self.config.eval.image_folder,'good'),exist_ok=True)
+#                     os.makedirs(os.path.join(self.config.eval.image_folder,'bad'),exist_ok=True)
+#                     os.makedirs(os.path.join(self.config.eval.image_folder,'good'),exist_ok=True)
 
-                    if abs(target_num - predict_num) >=50:
+#                     if abs(target_num - predict_num) >=50:
 
-                        save_image(queries[0], os.path.join(self.config.eval.image_folder, f'bad/{i}_query_bad.png'))
-                        # grids = make_grid(references)
-                        save_image(references[0], os.path.join(self.config.eval.image_folder, f'bad/{i}_ref_bad.png'))
+#                         save_image(queries[0], os.path.join(self.config.eval.image_folder, f'bad/{i}_query_bad.png'))
+#                         # grids = make_grid(references)
+#                         save_image(references[0], os.path.join(self.config.eval.image_folder, f'bad/{i}_ref_bad.png'))
 
-                        plt.imshow(predict[0,0].cpu().numpy())
-                        plt.title(f'predict sum = {predict_num}')
-                        plt.savefig(os.path.join(self.config.eval.image_folder, f'bad/{i}_predict_bad.png'))
+#                         plt.imshow(predict[0,0].cpu().numpy())
+#                         plt.title(f'predict sum = {predict_num}')
+#                         plt.savefig(os.path.join(self.config.eval.image_folder, f'bad/{i}_predict_bad.png'))
 
-                        plt.imshow(target[0,0].cpu().numpy())
-                        plt.title(f'target sum = {target_num}')
-                        plt.savefig(os.path.join(self.config.eval.image_folder, f'bad/{i}_target_bad.png'))
+#                         plt.imshow(target[0,0].cpu().numpy())
+#                         plt.title(f'target sum = {target_num}')
+#                         plt.savefig(os.path.join(self.config.eval.image_folder, f'bad/{i}_target_bad.png'))
 
-                    if abs(target_num - predict_num)<=20:
+#                     if abs(target_num - predict_num)<=20:
 
-                        save_image(queries[0],os.path.join(self.config.eval.image_folder, f'good/{i}_query_good.png'))
-                        # grids = make_grid(references)
-                        save_image(references[0],os.path.join(self.config.eval.image_folder, f'good/{i}_ref_good.png'))
+#                         save_image(queries[0],os.path.join(self.config.eval.image_folder, f'good/{i}_query_good.png'))
+#                         # grids = make_grid(references)
+#                         save_image(references[0],os.path.join(self.config.eval.image_folder, f'good/{i}_ref_good.png'))
 
-                        plt.imshow(predict[0,0].cpu().numpy())
-                        plt.title(f'predict sum = {predict_num}')
-                        plt.savefig(os.path.join(self.config.eval.image_folder, f'good/{i}_predict_good.png'))
+#                         plt.imshow(predict[0,0].cpu().numpy())
+#                         plt.title(f'predict sum = {predict_num}')
+#                         plt.savefig(os.path.join(self.config.eval.image_folder, f'good/{i}_predict_good.png'))
 
-                        plt.imshow(target[0,0].cpu().numpy())                        
-                        plt.title(f'target sum = {target_num}')
-                        plt.savefig(os.path.join(self.config.eval.image_folder, f'good/{i}_target_good.png'))
+#                         plt.imshow(target[0,0].cpu().numpy())                        
+#                         plt.title(f'target sum = {target_num}')
+#                         plt.savefig(os.path.join(self.config.eval.image_folder, f'good/{i}_target_good.png'))
 
 
         print(f'mae = {mae_sum/count}')
